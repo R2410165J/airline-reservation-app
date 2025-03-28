@@ -1,12 +1,13 @@
 'use client';
 
+import React, { useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as z from 'zod';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { toFormikValidationSchema } from 'zod-formik-adapter';
 import { useAuth } from '@/hooks/useAuth';
 import { Register } from '@/types/auth';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { useRouter } from 'next/navigation';
-import React from 'react';
-import * as z from 'zod';
-import { toFormikValidationSchema } from 'zod-formik-adapter';
 
 const SignUpForm: React.FC = () => {
   const { register } = useAuth();
